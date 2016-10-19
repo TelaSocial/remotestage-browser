@@ -38,7 +38,7 @@ ipcRenderer.on('background_page', (event, message) => {
 
 ipcRenderer.on('layout', (event, message) => {
   document.body.style.backgroundImage='url(page.png)';
-  document.getElementById('canvas1').innerHTML=message;
+  document.body.innerHTML=message;
   status('status','layout','TelaSocial:/remotestage/browser/layout');
 });
 

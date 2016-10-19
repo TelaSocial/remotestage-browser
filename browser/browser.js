@@ -60,7 +60,7 @@ function componentSend(key, value) {
 
    let view = document.createElement('webview');
    view.setAttribute('id','webview_'+key);
-   view.setAttribute('style','width:100%;height:100%;background:red');
+   view.setAttribute('style','width:100%;height:100%;');
 
    document.getElementById(key).appendChild(view);
 

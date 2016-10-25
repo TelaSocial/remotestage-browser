@@ -1,6 +1,8 @@
 {
   "name": "control-electron-app",
   "version": "1.0.1",
+  "license" : "MIT",
+  "author"  : "Marcio S Galli",
   "main": "main.js",
   "dependencies": {},
   "devDependencies": {

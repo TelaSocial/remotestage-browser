@@ -16,7 +16,12 @@ A node application that manages a kiosk-based dashboard browser lifecycle. The l
 * pm2 startup
 * pm2 start process.json
 
-## Designing and tests
+## Design
+
+* grid-based browser router - a system that supports loading multi web views, and to have validation against each, therefore maintaining a quality criteria for a 24x7 display experience;
+
+
+
 
 ### Chromedriver, and electron
 
@@ -36,10 +41,9 @@ A node application that manages a kiosk-based dashboard browser lifecycle. The l
 * Exiting from node http://stackoverflow.com/questions/5266152/how-to-exit-in-node-js
 * [supervisord](http://supervisord.org/introduction.html)
 
-## Electron grid-browser app
+## grid-browser routing
 
 One possibility, for aiming high performance multi components app, is to have a local browser page served with a number of grid-based elements. These elements are to be loaded with webview-based content i.e. web remote content, yet they are separated from each other.
-
 
 ## Other
 

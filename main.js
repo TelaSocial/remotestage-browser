@@ -13,10 +13,19 @@ app.on('ready', () => {
 
   win.loadURL('file://' + __dirname + '/browser.html');
 
+  var config_layout = require('./'+config.layout);
+
   win.webContents.on('did-finish-load', () => {
     console.log('Started..');
-    win.webContents.send('page', config.page );
-  })
+
+    win.webContents.send('layout', config_layout.html );
+
+    for(k in config_layout.components) { 
+       console.log('Sending ' + JSON.stringify(config_layout.components[k]));
+       win.webContents.send('component_send', JSON.stringify(config_layout.components[k]) );
+
+    } 
+  });
 
 });
 

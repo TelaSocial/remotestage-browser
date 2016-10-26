@@ -10,11 +10,11 @@ var app = new Application({
 })
 
 app.start().then(function ok() {
-		app.client.waitUntilTextExists('#message-0', 'TelaSocial:/monitor/browser', 10000).then(
+		app.client.waitUntilTextExists('#status-0', 'TelaSocial:/monitor/browser', 10000).then(
 			function success() {
 				console.log('status: TelaSocial:/monitor/browser');
 
-				app.client.waitUntilTextExists('#message-1', 'TelaSocial:success-level-1', 10000).then(
+				app.client.waitUntilTextExists('#status-1', 'TelaSocial:/monitor/browser/webview/c1', 10000).then(
 					function ok()  {
 						console.log('status: TelaSocial:success-level-1');
 

@@ -10,14 +10,24 @@ var app = new Application({
 })
 
 app.start().then(function ok() {
-		app.client.waitUntilTextExists('#message', 'success', 10000).then(
+		app.client.waitUntilTextExists('#message-0', 'TelaSocial:/monitor/browser', 10000).then(
 			function success() {
-				console.log('Success, content loaded!!!');
+				console.log('status: TelaSocial:/monitor/browser');
 
+				app.client.waitUntilTextExists('#message-1', 'TelaSocial:success-level-1', 10000).then(
+					function ok()  {
+						console.log('status: TelaSocial:success-level-1');
+
+					}, function nok() {
+
+					}
+				);
+/*
 				app.stop().then(function ok() {
-					console.log('Quit ')
+					console.log('Quit')
 				}, function nok() {
 				});
+*/
 
 			}, function nok() {
 				console.log("Not loaded...");

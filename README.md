@@ -39,3 +39,10 @@ A node application that manages a kiosk-based dashboard browser lifecycle. The l
 ## Electron grid-browser app
 
 One possibility, for aiming high performance multi components app, is to have a local browser page served with a number of grid-based elements. These elements are to be loaded with webview-based content i.e. web remote content, yet they are separated from each other.
+
+
+## Other
+
+* https://github.com/chentsulin/electron-react-boilerplate
+* https://github.com/sindresorhus/awesome-electron#apps
+* https://tech.polyconseil.fr/code-your-js-app-like-its-86.html

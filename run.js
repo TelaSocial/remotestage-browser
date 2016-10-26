@@ -10,7 +10,7 @@ var app = new Application({
 })
 
 app.start().then(function ok() {
-		app.client.waitUntilTextExists('#message', 'success', 1000).then(
+		app.client.waitUntilTextExists('#message', 'success', 10000).then(
 			function success() {
 				console.log('Success, content loaded!!!');
 

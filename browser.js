@@ -8,7 +8,7 @@ ipcRenderer.on('component_send', (event, message) => {
 
 ipcRenderer.on('layout', (event, message) => {
   document.getElementById('canvas0').innerHTML=message;
-  status('TelaSocial:/monitor/browser/layout');
+  status('layout','TelaSocial:/monitor/browser/layout');
 });
 
 function componentSend(key, value) { 
@@ -18,19 +18,17 @@ function componentSend(key, value) {
 
  document.getElementById(key).appendChild(view);
  var loadstop = () => { 
-    status('TelaSocial:/monitor/browser/webview/'+key);
+    status(key, 'TelaSocial:/monitor/browser/webview/'+key);
  } 
  view.addEventListener('did-stop-loading', loadstop);
  view.setAttribute('src',value);
 
 }
 
-var statusMessageCounter = 0;
-
-function status(message) { 
+function status(key,message) { 
   var entry = document.createElement('div');
-  entry.setAttribute('id','status-'+statusMessageCounter++);
+  entry.setAttribute('id','status-'+key);
   entry.className = 'status';
-  entry.innerHTML=message; 
+  entry.innerHTML='status-'+ key + '://'+  message; 
   document.body.appendChild(entry);
 } 

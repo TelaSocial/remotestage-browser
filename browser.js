@@ -8,7 +8,7 @@ ipcRenderer.on('component_send', (event, message) => {
 
 ipcRenderer.on('layout', (event, message) => {
   document.getElementById('canvas0').innerHTML=message;
-  status('layout','TelaSocial:/monitor/browser/layout');
+  status('layout','TelaSocial:/remotestage/browser/layout');
 });
 
 function componentSend(key, value) { 
@@ -18,7 +18,7 @@ function componentSend(key, value) {
 
  document.getElementById(key).appendChild(view);
  var loadstop = () => { 
-    status(key, 'TelaSocial:/monitor/browser/webview/'+key);
+    status(key, 'TelaSocial:/remotestage/browser/webview/'+key);
  } 
  view.addEventListener('did-stop-loading', loadstop);
  view.setAttribute('src',value);

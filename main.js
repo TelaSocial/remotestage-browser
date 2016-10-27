@@ -20,14 +20,12 @@ app.on('ready', () => {
 
     win.webContents.send('layout', config_layout.html );
 
-    for(k in config_layout.components) { 
+    for(k in config_layout.components) {
        console.log('Sending ' + JSON.stringify(config_layout.components[k]));
        win.webContents.send('component_send', JSON.stringify(config_layout.components[k]) );
+    }
 
-    } 
   });
 
+
 });
-
-
-

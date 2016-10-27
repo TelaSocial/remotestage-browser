@@ -16,22 +16,52 @@ var app = new Application({
 // take new routes..
 app.start().then(function ok() {
 
-	for(k in config_layout.components) {
+	app.client.getRenderProcessLogs().then(function (logs) {
+	  logs.forEach(function (log) {
+	    console.log('Render log: '+ log.message + ' - '+ log.source + ' - '+ log.level)
+	  })
+	});
+
+	for(let k in config_layout.components) {
     let component = config_layout.components[k];
 		console.log('Watching: '+ component.key + ' and '+ component.value);
 		app.client.waitUntilTextExists(
-			  '#status-'+ component.key,
+			  '#load-'+ component.key,
 		    '/remotestage/browser/webview', 10000).then(
 					() => {
-							console.log('/remotestage/browser/webview/'+'#status-'+ component.key+'='+component.value);
+							console.log('/remotestage/browser/webview/'+'#load-'+ component.key+'='+component.value);
 					}
 		);
+
+		app.client.waitUntilTextExists(
+			  '#error-'+ component.key,
+		    '/remotestage/browser/webview', 10000).then(
+					() => {
+							console.log('/remotestage/browser/webview#_ERROR_/'+'#error-'+ component.key+'='+component.value);
+
+							for(let k in config_layout.components_backup) {
+						    let cEl = config_layout.components_backup[k];
+								if(cEl.key == component.key) {
+									var serializedPageLoad = JSON.stringify(cEl);
+									console.log('Will reload :' +serializedPageLoad)
+									app.webContents.send('component_replace', serializedPageLoad );
+								}
+							}
+
+					}
+		);
+
 	}
 
 	app.client.waitUntilTextExists('#status-layout',
 																 'TelaSocial:/remotestage/browser', 10000).then(
 		function ok() {
+
 			console.log('status: TelaSocial:/remotestage/browser');
+
+			app.webContents.send('IKnowWhatYouDidLastSummer', 'yes I know' );
+			//app.browserWindow.loadURL('http://www.google.com');
+
 		}, function nok() {
 			console.log("Not loaded...");
 			app.stop().then(function ok() {

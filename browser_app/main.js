@@ -8,10 +8,12 @@ let win;
 
 app.on('ready', () => {
 
+  // kiosk : true, 
 
   win = new BrowserWindow({
       height : windowHeight,
       width  : windowWidth,
+      alwaysOnTop : true,
       frame  : config.frame
   });
 
@@ -20,18 +22,34 @@ app.on('ready', () => {
   var config_layout = require('../'+config.layout);
 
   win.webContents.on('did-finish-load', () => {
-    console.log('Started..');
+    console.log('Started..', process.argv[2] );
 
-    win.webContents.send('layout', config_layout.html );
-    if(config.window_scale != 1) {
-      let windowConfig = { width: config.width, height:config.height, scale: config.window_scale}
-      win.webContents.send('scale', JSON.stringify(windowConfig) );
+    if(process.argv[2] == 'render') {
+
+      let windowConfig = {
+          page   : config.background_page,
+          width  : config.width,
+          height : config.height,
+          scale  : config.window_scale
+      }
+
+      win.webContents.send('background_page', JSON.stringify(windowConfig) );
+
+    } else {
+
+        win.webContents.send('layout', config_layout.html );
+
+        if(config.window_scale != 1) {
+          let windowConfig = { width: config.width, height:config.height, scale: config.window_scale}
+          win.webContents.send('scale', JSON.stringify(windowConfig) );
+        }
+
+        for(k in config_layout.components) {
+           console.log('Sending ' + JSON.stringify(config_layout.components[k]));
+           win.webContents.send('component_send', JSON.stringify(config_layout.components[k]) );
+        }
     }
 
-    for(k in config_layout.components) {
-       console.log('Sending ' + JSON.stringify(config_layout.components[k]));
-       win.webContents.send('component_send', JSON.stringify(config_layout.components[k]) );
-    }
 
   });
 

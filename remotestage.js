@@ -4,11 +4,13 @@ const electron    = require('electron-prebuilt');
 const config        = require('./config_browser.js');
 const config_layout = require('./'+config.layout);
 
+const fs = require('fs');
+
 // Spectron Application depends on Promises
 // const Promise = require('es6-promise').Promise;
 
 var app = new Application({
-	path: electron, args:['browser_app/main.js']
+	path: electron, args:['browser_app/main.js', 'remote']
 })
 
 // Here we will be notified about registration for all components
@@ -60,7 +62,9 @@ app.start().then(function ok() {
 			console.log('status: TelaSocial:/remotestage/browser');
 
 			app.webContents.send('IKnowWhatYouDidLastSummer', 'yes I know' );
-			//app.browserWindow.loadURL('http://www.google.com');
+			app.browserWindow.capturePage().then(function (imageBuffer) {
+			  fs.writeFile('page.png', imageBuffer)
+			})
 
 		}, function nok() {
 			console.log("Not loaded...");

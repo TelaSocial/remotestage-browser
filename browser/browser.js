@@ -13,14 +13,39 @@ ipcRenderer.on('component_replace', (event, message) => {
 
 /* initial Layout and window */
 
+ipcRenderer.on('background_page', (event, message) => {
+
+  let windowData = JSON.parse(message);
+
+  let divView = document.createElement('div');
+  divView.setAttribute('style','width:100%;height:100%')
+  document.body.appendChild(divView);
+
+  let view = document.createElement('webview');
+  view.setAttribute('autosize','on');
+  view.setAttribute('style','width:100%;height:100%')
+  view.setAttribute('src', '../'+windowData.page);
+  divView.appendChild(view);
+
+  view.addEventListener('did-stop-loading', function () {
+    status('load', 'background_page', 'TelaSocial:/remotestage/browser/webview');
+  });
+
+
+  status('status','layout','TelaSocial:/remotestage/browser/background_page');
+
+});
+
 ipcRenderer.on('layout', (event, message) => {
-  document.getElementById('canvas0').innerHTML=message;
+  document.body.style.backgroundImage='url(page.png)';
+  document.getElementById('canvas1').innerHTML=message;
   status('status','layout','TelaSocial:/remotestage/browser/layout');
 });
 
 ipcRenderer.on('scale', (event, message) => {
   let windowData = JSON.parse(message);
-  document.body.setAttribute('style','width:'+windowData.width+'px;height:'+windowData.height+'px;background:blue;transform-origin: 0 0; transform: scale('+windowData.scale+')')
+  console.log(message);
+//  document.body.setAttribute('style','width:'+windowData.width+'px;height:'+windowData.height+'px;transform-origin: 0 0; transform: scale('+windowData.scale+')')
   status('status','resize','TelaSocial:/remotestage/browser#rezise');
 
 });
@@ -34,8 +59,8 @@ ipcRenderer.on('IKnowWhatYouDidLastSummer', (event, message) => {
 function componentSend(key, value) {
 
    let view = document.createElement('webview');
-   view.setAttribute('style','width:100%, height:100%;background:red');
    view.setAttribute('id','webview_'+key);
+   view.setAttribute('style','width:100%;height:100%;background:red');
 
    document.getElementById(key).appendChild(view);
 

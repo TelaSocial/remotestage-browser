@@ -50,3 +50,7 @@ One possibility, for aiming high performance multi components app, is to have a 
 * https://github.com/chentsulin/electron-react-boilerplate
 * https://github.com/sindresorhus/awesome-electron#apps
 * https://tech.polyconseil.fr/code-your-js-app-like-its-86.html
+
+## Bugs in platform
+
+* Webview scaling issues https://github.com/electron/electron/issues/7777 

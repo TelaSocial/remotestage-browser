@@ -1,5 +1,5 @@
 var config = {
-   'page'   : './vendor/telasocial.html',
+   'background_page'   : './vendor/telasocial.html',
    'layout' : 'config_layout.js',
    'width'  : 1080,
    'height' : 1920,

@@ -6,7 +6,7 @@ var layout = {
    ],
     'components_backup': [
       {'key' : 'c1', 'value': 'http://localhost:8888/static/ping.html'},
-      {'key' : 'c2', 'value': 'http://www.google.com'},
+      {'key' : 'c2', 'value': 'http://localhost:8888/static/ping.html'},
    ],
    'width'  : 640,
    'height' : 480,

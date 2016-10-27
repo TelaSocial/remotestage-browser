@@ -1,9 +1,10 @@
 var config = {
-   'page'   : 'http://localhost:8888/static/ping.html',
+   'page'   : './vendor/telasocial.html',
    'layout' : 'config_layout.js',
-   'width'  : 640,
-   'height' : 480,
-   'frame'  : true
+   'width'  : 1080,
+   'height' : 1920,
+   'window_scale' : .4,
+   'frame'  : false
 };
 
 module.exports = config;

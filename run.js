@@ -8,7 +8,7 @@ const config_layout = require('./'+config.layout);
 // const Promise = require('es6-promise').Promise;
 
 var app = new Application({
-	path: electron, args:['.']
+	path: electron, args:['browser_app/main.js']
 })
 
 // Here we will be notified about registration for all components

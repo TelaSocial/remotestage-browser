@@ -4,7 +4,7 @@ var config = {
    'width'  : 1080,
    'height' : 1920,
    'window_scale' : .7,
-   'frame'  : false
+   'frame'  : true
 };
 
 module.exports = config;

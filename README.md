@@ -22,9 +22,6 @@ Make sure you have an X server running at :0, then
 
 * grid-based browser router - a system that supports loading multi web views, and to have validation against each, therefore maintaining a quality criteria for a 24x7 display experience;
 
-
-
-
 ### Chromedriver, and electron
 
 * [Using spectron](https://speakerdeck.com/kevinsawicki/testing-your-electron-apps-with-chromedriver)
@@ -56,3 +53,9 @@ One possibility, for aiming high performance multi components app, is to have a 
 ## Bugs in platform
 
 * Webview scaling issues https://github.com/electron/electron/issues/7777
+
+## Licensing
+
+* Sources by this project are provided in MIT license, original author is Marcio dos Santos Galli;
+* Other licenses may apply to each vendor project, see package.json;
+* Tela Social, Latinoware, RemoteStage and other names are trademarks of their respective owners.

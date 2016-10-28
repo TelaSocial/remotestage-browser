@@ -23,6 +23,8 @@ ipcRenderer.on('background_page', (event, message) => {
 
   let view = document.createElement('webview');
   view.setAttribute('autosize','on');
+  view.setAttribute('allowpopups','');
+  view.setAttribute('plugins','');
   view.setAttribute('style','width:100%;height:100%')
   view.setAttribute('src', '../'+windowData.page);
   divView.appendChild(view);

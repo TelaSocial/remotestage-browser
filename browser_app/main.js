@@ -9,11 +9,11 @@ let win;
 app.on('ready', () => {
 
   // kiosk : true, 
+  //    alwaysOnTop : true,
 
   win = new BrowserWindow({
       height : windowHeight,
       width  : windowWidth,
-      alwaysOnTop : true,
       frame  : config.frame
   });
 

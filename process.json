@@ -1,0 +1,17 @@
+{
+  apps : [{
+    name        : "telasocial",
+    script      : "./remotestage.js",
+    watch       : false,
+    max_memory_restart : "700M",
+    restart_delay : 4000, 
+    kill_timeout  : 4000, 
+    instances   : 1,
+    env: {
+      "NODE_ENV": "development",
+    },
+    env_production : {
+       "NODE_ENV": "production"
+    }
+  }]
+}

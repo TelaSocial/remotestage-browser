@@ -9,7 +9,9 @@ A node application that manages a kiosk-based dashboard browser lifecycle. The l
 
 ## How to use
 
-* node run.js
+Make sure you have an X server running at :0, then
+
+* node remotestage.js
 
 ## Make it boot smart
 
@@ -53,4 +55,4 @@ One possibility, for aiming high performance multi components app, is to have a 
 
 ## Bugs in platform
 
-* Webview scaling issues https://github.com/electron/electron/issues/7777 
+* Webview scaling issues https://github.com/electron/electron/issues/7777

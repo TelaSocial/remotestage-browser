@@ -1,6 +1,8 @@
-# Controlling Electron based app with Spectron
+# RemoteStage the Enterprise Dashboard Browser 
 
-A node application that manages a kiosk-based dashboard browser lifecycle. The lifecycle is based in establishing the basic infrastructure to launch a browser and a local app. Depending on criteria and runtime-based tests, it will launch alternate measures. This is, therefore, a realtime system.
+RemoteStage is a NodeJS-based application that manages a kiosk/dashboard browser lifecycle. The lifecycle meaning that it establishes the basic infrastructure to launch a browser with multiple containers for web content. Depending on your tests criteria, runtime and in-production tests, it will find alternate measures, such as to load alternative web content; therefore maintaining a continuous experience for spaces.
+
+RemoteStage can be used for high definition TV appliances at events, museums, open/public spaces, and more. It's aimed to be an enterprise solution and it was featured in major open source events alongside other widgets and content solutions provided by [Tela Social Labs](http://www.telasocial.com/_en/index.html).
 
 ## Install
 
